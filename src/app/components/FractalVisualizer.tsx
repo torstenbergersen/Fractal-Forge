@@ -1,20 +1,18 @@
 "use client";
 
-import React, { useRef, useEffect } from "react";
-import { Canvas } from "@react-three/fiber";
+import React, { useRef, useMemo, useEffect } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls } from "@react-three/drei";
+import { createFractalMaterial } from "../utils/FractalGenerators";
 
-const FractalVisualizer: React.FC = () => {
+const FractalVisualizer = (): JSX.Element => {
   return (
+    // fractual visualization componenent
+
     <div style={{ width: "100%", height: "100vh" }}>
       <Canvas>
-        <OrbitControls />
-        <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <mesh>
-          <planeGeometry args={[10, 10]} />
-          <meshStandardMaterial color="yellow" side={2} />
-        </mesh>
+        <OrbitControls enableRotate={false} />
+        {/* <FractalPlane /> */}
       </Canvas>
     </div>
   );
