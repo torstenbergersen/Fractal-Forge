@@ -37,7 +37,7 @@ export function createFractalMaterial(
         // following function converts HSV color to RGB
         vec3 hsv2rgb(vec3 c) {
         vec4 K = vec4(1.0, 2.0 / 3.0, 1.0 / 3.0, 3.0);
-        vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 K.www);
+        vec3 p = abs(fract(c.xxx + K.xyz) * 6.0 - K.www);
         return c.z * min(K.xxx, clamp(p - K.xxx, 0.0, 1.0), c.y);
         }
         
@@ -48,7 +48,7 @@ export function createFractalMaterial(
             float i;
             for (i = 0.0; i < maxIterations; i++) {
                 z = vec2(z.x * z.x - z.y * z.y, 2.0 * z.x * z.y) + c; // z = z^2 + c
-                if (dor(z, z) > escapeRadius) break; // check if point has escaped
+                if (dot(z, z) > escapeRadius) break; // check if point has escaped
             }   
             
             // coloring
