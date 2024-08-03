@@ -54,14 +54,11 @@ const FractalVisualizer = (): JSX.Element => {
 
   return (
     // container for fractal visualizer
-    <div style={{ width: "100%", height: "100vh", position: "relative" }}>
+    <div className="w-full h-screen relative">
       {/* three.js canvas for rendering fractal */}
-      <Canvas>
+      <Canvas camera={{ position: [0, 0, 1], near: 0.01, far: 1000 }}>
         {/* controls for panning view (rotations disabled) */}
         <OrbitControls enableRotate={false} />
-        <perspectiveCamera position={[0, 0, 5]} />
-        <ambientLight intensity={0.5} />
-        <pointLight position={[10, 10, 10]} />
         {/* render fractal */}
         <FractalPlane
           maxIterations={maxIterations}

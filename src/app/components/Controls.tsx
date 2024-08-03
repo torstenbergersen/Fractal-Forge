@@ -21,7 +21,7 @@ const Controls: React.FC<ControlsProps> = ({
 }) => {
   return (
     // container for controls, positioned absolutley with a semi-transparent background
-    <div className="absolute top-0 left-0 p-4 bg-black bg-opacity-50 test-white">
+    <div className="absolute top-0 left-0 p-2 bg-black bg-opacity-50 text-white text-sm">
       {/* control for max iterations */}
       <div>
         <label>Max Iterations: {maxIterations}</label>
