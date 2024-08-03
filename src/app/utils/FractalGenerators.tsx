@@ -15,6 +15,8 @@ export function createFractalMaterial(
       maxIterations: { value: maxIterations },
       escapeRadius: { value: escapeRadius },
       colorScale: { value: colorScale },
+      zoom: { value: 1.0 },
+      center: { value: new THREE.Vector2(0, 0) },
     },
     // GLSL code follows within backticks, used for computation of fractals directly on GPU
     vertexShader: `
@@ -36,6 +38,8 @@ export function createFractalMaterial(
         uniform float maxIterations;
         uniform float escapeRadius;
         uniform float colorScale;
+        uniform float zoom;
+        uniform vec2 center;
         varying vec2 vUv;
         
         // following function converts HSV color to RGB
@@ -59,7 +63,9 @@ export function createFractalMaterial(
             if (i == maxIterations) {
                 gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0); // black for points in the set
             } else {
-                float hue = i / maxIterations;
+                // smooth coloring
+                float smooth_i = i + 1.0 - log(log(length(z))) / log(2.0);
+                float hue = smooth_i / maxIterations;
                 vec3 color = hsv2rgb(vec3(hue * colorScale, 1.0, 1.0));
                 gl_FragColor = vec4(color, 1.0);
             }
