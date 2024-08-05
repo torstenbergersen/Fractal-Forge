@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { color } from "three/webgpu";
+// import { color } from "three/webgpu";
 
 export function createFractalMaterial(
   // max iterations for the fractal algorithm, higher values for more detail
