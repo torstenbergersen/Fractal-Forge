@@ -1,8 +1,6 @@
 # Fractal Forge
 
-Fractal Forge is an ongoing personal project of mine. It is essentially a web app that allows users to explore and manipulate fractal visualizations in real-time. Built with Next.js, React, Three.js, and WebGL, my hope was that this project could offer a seamless and performant experience for fractal enthusiasts.
-
-Currently only includes the Mandelbrot set, but I will be adding more soon.
+Fractal Forge is an ongoing personal project of mine. It is essentially a web app that allows users to explore and manipulate fractal visualizations in real-time (only the mandelbrot set at the moment). Built with Next.js, React, Three.js, and WebGL, my hope was that this project could offer a seamless and performant experience for fractal enthusiasts.
 
 Try it out here!  -- [Demo](https://fractal-forge.vercel.app/) --
 
